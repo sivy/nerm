@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    margin: 0 4rem;
+}
+
+
+dt {
+    display: inline-flex;
+    width: 5rem;
+}
+
+dd {
+    display: inline-flex;
+    margin-left: 1rem;
+    padding-left: 0;
+}
+
+#title {
+    font-family: 'Merriweather', Georgia, serif;
+    letter-spacing: 2px;
+    color: rgb(32, 109, 176);
+}
+
+p.description {
+    font-family: 'Merriweather', Georgia, serif;
+    font-weight: 300;
+    margin: 1rem 1rem 2rem;
+}
+
+.worksheet {
+    column-count: 3;
+    column-gap: 2rem;
+    /* grid-gap: 1.5rem; */
+    width: fit-content;
+}
+
+@media screen and (max-width: 880px) {
+    .worksheet {
+        column-count: 1;
+    }
+
+    dd {
+        width: 64%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .worksheet {
+        column-count: 2;
+    }
+
+    #miscellaneous {
+        /* grid-column: 1 / span 2; */
+    }
+    dd {
+        width: 54%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .worksheet {
+        column-count: 3;
+    }
+
+    #miscellaneous {
+        /* column-count: 3; */
+    }
+}
+
+.section {
+    padding: 1rem;
+    border: 1px solid rgb(170, 214, 227);
+    /* background-color: rgb(195, 230, 241); */
+    margin-bottom: 2rem;
+    break-inside: avoid;
+}
+
+.section h3 {
+    font-family: 'Merriweather', Georgia, serif;
+    background-color: rgb(136, 201, 222);
+    border-bottom: 4px solid rgb(55, 142, 171);
+    color: white;
+    padding: 1rem;
+    margin: -1rem;
+    margin-bottom: 1rem;
+    font-size: 110%;
+    padding: auto;
+}
+
+.preference {
+    display: flexbox;
+    height: fit-content;
+    margin-bottom: 4px;
+}
+
+#miscellaneous .preference {
+    /* border-bottom: 2px solid lightgray; */
+}
+
+.preference {
+    /* border: 1px solid grey; */
+}
+
+.pref-select label {
+    margin-right: .25rem;
+}
+
+.pref-select input {
+    position: fixed;
+    top: -1000px;
+}
+
+.pref-select i.fade {
+    opacity: 0.35;
+}
+
+i.fa-heart {
+    color: red;
+}
+
+i.fa-circle-check {
+    color: green;
+}
+
+i.fa-circle-question {
+    color: rgb(13, 126, 231);
+}
+
+i.fa-circle-xmark {
+    color: rgb(240, 125, 10);
+}
+
+.key {
+    margin: 1rem;
+    font-size: 90%;
+}
+
+.term {
+    font-family: 'Merriweather', Georgia, serif;
+    text-transform: uppercase;
+    margin: 0 0.5rem;
+    color: #666;
+}

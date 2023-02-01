@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <style type="text/css">
+        .body {
+            width: auto;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/1c55737a88.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather">
+    <link rel="stylesheet" href="./assets/nerm.css" type="text/css" />
+
+</head>
+
+<body>
+    <div class="header">
+        <h1 id="title">{{ title }}</h1>
+        <p class="description">{{ description }}</p>
+    </div>
+
+    {% include 'partials/key.html' %}
+
+    <form id="nerm">
+        <div class="worksheet">
+            {% for section_title, pref_options in preferences.items() %}
+            <div class="section" id="{{section_title | kebab }}">
+                <h3>{{ section_title }}</h3>
+                <dl>
+                    {% for option in pref_options %}
+                    {% set option_id = option | kebab %}
+                    <div id="{{ option_id }}" class="preference">
+                        {% include 'partials/options.html' %}
+                        <dd class="description">{{ option }}</dd>
+                    </div>
+                    {% endfor %}
+                </dl>
+            </div>
+            {% endfor %}
+            <div class="personal-milestones">
+                <div class="section" id="personal-milestones">
+                    <h3>PERSONAL MILESTONES</h3>
+                    <dl>
+                        {% for option_n in range(0, 10) %}
+                        {% set option_id = "custom-" + option_n | string %}
+                        <div id="{{ option_id }}" class="preference">
+                            {% include 'partials/options.html' %}
+                            <dd class="description">{{ option }}</dd>
+                        </div>
+                        {% endfor %}
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+    </form>
+    <script src="assets/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function autorun() { }
+        if (document.addEventListener)
+            document.addEventListener('DOMContentLoaded', autorun, false)
+        else window.onload = autorun
+    </script>
+    <script type="text/javascript">
+        $(".pref-select label i").click(function (e) {
+            e.stopPropagation()
+            // console.log("clicked " + $(this));
+            console.log($(this).parent());
+            selected_radio = $(this).parent().find("input:radio")
+            if (!selected_radio) {
+                return false;
+            }
+            console.log(selected_radio);
+            radio_name = selected_radio[0].name
+            console.log("radio_name: " + radio_name)
+            console.log(selected_radio[0].checked);
+            console.log(selected_radio.val());
+            //
+            this_icon_set = "#" + radio_name + " .pref-select label i"
+            console.log(this_icon_set)
+            console.log($(this_icon_set))
+
+            $(this_icon_set).each(function () {
+                console.log(this)
+            });
+
+            $(this_icon_set).removeClass("fa-solid").addClass("fa-regular");
+            $(this).addClass("fa-solid");
+        })
+        // $(document).ready(function () {
+        //     $(".pref-select").keypress(function (e) {
+        //         console.log(e.which);
+        //     });
+        // });
+    </script>
+</body>
+
+</html>
