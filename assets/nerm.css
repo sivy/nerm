@@ -1,16 +1,23 @@
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
     margin: 0 4rem;
 }
 
+a {
+    color:rgb(173, 61, 173);
+}
+a:visited {
+    color: grey;
+}
 
 dt {
     display: inline-flex;
     width: 5rem;
 }
 
-dd {
+dd.description {
     display: inline-flex;
     margin-left: 1rem;
     padding-left: 0;
@@ -31,8 +38,13 @@ p.description {
 .worksheet {
     column-count: 3;
     column-gap: 2rem;
+    column-fill: auto;
     /* grid-gap: 1.5rem; */
     width: fit-content;
+}
+
+.about-link {
+    font-size: 90%;
 }
 
 @media screen and (max-width: 880px) {
@@ -45,26 +57,61 @@ p.description {
     }
 }
 
-@media screen and (min-width: 900px) {
+#personal-milestones {
+    column-span: all;
+    margin-top: 1.5rem;
+}
+
+
+@media screen and (max-width: 1000px) {
     .worksheet {
         column-count: 2;
+        /* height: 150em; */
     }
 
-    #miscellaneous {
-        /* grid-column: 1 / span 2; */
-    }
     dd {
-        width: 54%;
+        width: calc(100% - 7rem);
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1001px) {
     .worksheet {
         column-count: 3;
+        /* height: 100em; */
+    }
+    dd {
+        width: calc(100% - 7rem);
+    }
+}
+
+@media print {
+    /* us letter in points: 612 × 792 */
+    body {
+        /* margin: 1cm; */
+        font-size: 12pt;
+    }
+    .about-link {
+        display: none;
+    }
+    .worksheet {
+        width: 760pt;
+        column-count: 3;
+        /* height: 150em; */
+        font-size: 12pt;
     }
 
-    #miscellaneous {
-        /* column-count: 3; */
+    dd {
+        width: calc(100% - 7rem);
+    }
+
+    #title,
+    p.description,
+    .section h3,
+    .term {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+    #title {
+        font-weight: normal;
     }
 }
 
@@ -74,6 +121,7 @@ p.description {
     /* background-color: rgb(195, 230, 241); */
     margin-bottom: 2rem;
     break-inside: avoid;
+    font-size: 90%;
 }
 
 .section h3 {
@@ -81,21 +129,27 @@ p.description {
     background-color: rgb(136, 201, 222);
     border-bottom: 4px solid rgb(55, 142, 171);
     color: white;
-    padding: 1rem;
+    padding: 1rem 1rem .5rem;
     margin: -1rem;
     margin-bottom: 1rem;
     font-size: 110%;
-    padding: auto;
 }
 
 .preference {
     display: flexbox;
     height: fit-content;
+    padding-top: 0.25rem;
+    border-top: 1px solid #eee;
     margin-bottom: 4px;
 }
+.preference:first-child {
+    padding-top: none;
+    border-top: none;
+}
 
-#miscellaneous .preference {
+#personal-milestones .preference .description {
     /* border-bottom: 2px solid lightgray; */
+    width: calc(90% - 5rem);
 }
 
 .preference {
