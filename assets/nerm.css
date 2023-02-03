@@ -113,6 +113,11 @@ p.description {
     #title {
         font-weight: normal;
     }
+    .section h3 {
+        background-color: white;
+        color: rgb(28, 93, 114);
+        font-weight: normal;
+    }
 }
 
 .section {
