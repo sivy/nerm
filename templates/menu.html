@@ -66,38 +66,7 @@
             document.addEventListener('DOMContentLoaded', autorun, false)
         else window.onload = autorun
     </script>
-    <script type="text/javascript">
-        $(".pref-select label i").click(function (e) {
-            e.stopPropagation()
-            // console.log("clicked " + $(this));
-            console.log($(this).parent());
-            selected_radio = $(this).parent().find("input:radio")
-            if (!selected_radio) {
-                return false;
-            }
-            console.log(selected_radio);
-            radio_name = selected_radio[0].name
-            console.log("radio_name: " + radio_name)
-            console.log(selected_radio[0].checked);
-            console.log(selected_radio.val());
-            //
-            this_icon_set = "#" + radio_name + " .pref-select label i"
-            console.log(this_icon_set)
-            console.log($(this_icon_set))
-
-            $(this_icon_set).each(function () {
-                console.log(this)
-            });
-
-            $(this_icon_set).removeClass("fa-solid").addClass("fa-regular");
-            $(this).addClass("fa-solid");
-        })
-        // $(document).ready(function () {
-        //     $(".pref-select").keypress(function (e) {
-        //         console.log(e.which);
-        //     });
-        // });
-    </script>
+    <script type="text/javascript" src="assets/nerm.js"></script>
 </body>
 
 </html>

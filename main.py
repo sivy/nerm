@@ -10,7 +10,7 @@ env = Environment(loader=loader)
 def kebab(input):
     """Custom filter"""
     step1 = re.sub(r"[^\w]", "-", input.lower())
-    return re.sub(r"-+", "-", step1)
+    return re.sub(r"-+", "-", step1).strip("-")
 
 
 env.filters["kebab"] = kebab
@@ -22,8 +22,6 @@ env.filters["kebab"] = kebab
 def cli(filepath, output):
     with open(filepath, "r") as nermfile:
         nerm = yaml.load(nermfile, Loader=yaml.SafeLoader)
-
-    # print(nerm)
 
     t = env.get_template("menu.html")
     out = t.render(**nerm)
