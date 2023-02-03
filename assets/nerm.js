@@ -51,4 +51,13 @@ $(document).ready(function () {
     loadState();
     console.log("setup input change handler")
     // $('#nerm').on('change', 'input', saveState);
+    $("#clear-form").click(() => {
+        if (window.confirm("Clear the worksheet and your saved choices?")) {
+            $("#nerm input:radio").each(() => {
+                $(this)[0].checked = false;
+            })
+            $("#nerm label i").removeClass("fa-solid")
+                              .addClass("fa-regular");
+        }
+    })
 });
