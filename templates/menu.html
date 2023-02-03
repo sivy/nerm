@@ -23,7 +23,7 @@
     </div>
 
     {% include 'partials/key.html' %}
-
+    {% set ns = namespace(tab_index=4) %}
     <form id="nerm">
         <div class="worksheet">
             {% for section_title, pref_options in preferences.items() %}
@@ -36,6 +36,7 @@
                         {% include 'partials/options.html' %}
                         <dd class="description">{{ option }}</dd>
                     </div>
+
                     {% endfor %}
                 </dl>
             </div>
@@ -47,7 +48,7 @@
                     {% set option_id = "custom-" + option_n | string %}
                     <div id="{{ option_id }}" class="preference">
                         {% include 'partials/options.html' %}
-                        <dd class="description">{{ option }}</dd>
+                        <dd class="description"><input type="text" id="custom-{{ option_n }}-description" name="custom-{{ option_n }}-description" class="custom-description"/></dd>
                     </div>
                     {% endfor %}
                 </dl>
@@ -57,7 +58,7 @@
 
     <div id="about">
     <p>This worksheet is just a fancy copy of a worksheet first published on <a href="https://www.reddit.com/r/polyamory">r/polyamory</a> as the Non-Escalator Relationship Menu in <a href="https://www.reddit.com/r/polyamory/comments/pwkdxp/v3_relationship_components_menu_last_update_for/">this post</a>. I've just reformatted it and made it clicky.</p>
-    <p>© Copyright 2021 <strong>u/poly_jane</strong>.</p>
+    <p>Contents © Copyright 2021 <strong>u/poly_jane</strong>.</p>
     </div>
     <script src="assets/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script type="text/javascript">

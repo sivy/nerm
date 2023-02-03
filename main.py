@@ -24,7 +24,12 @@ def cli(filepath, output):
         nerm = yaml.load(nermfile, Loader=yaml.SafeLoader)
 
     t = env.get_template("menu.html")
-    out = t.render(**nerm)
+    out = t.render(choice_label_classes={
+        "must": "fa-heart",
+        "like": "fa-circle-check",
+        "maybe": "fa-circle-question",
+        "never": "fa-circle-xmark",
+    }, **nerm)
     with open(output, "w") as out_file:
         out_file.write(out)
 

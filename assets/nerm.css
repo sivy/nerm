@@ -1,8 +1,12 @@
 
+html {
+    /* 10px? */
+    font-size: 62.5%;
+}
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12pt;
     margin: 0 4rem;
+    font-size: 1.2rem;
 }
 
 a {
@@ -14,7 +18,7 @@ a:visited {
 
 dt {
     display: inline-flex;
-    width: 5rem;
+    width: 5em;
 }
 
 dd.description {
@@ -27,6 +31,11 @@ dd.description {
     font-family: 'Merriweather', Georgia, serif;
     letter-spacing: 2px;
     color: rgb(32, 109, 176);
+}
+
+#personal-milestones {
+    column-span: all;
+    margin-top: 1.5rem;
 }
 
 p.description {
@@ -44,50 +53,52 @@ p.description {
 }
 
 .about-link {
-    font-size: 90%;
+    font-size: 1.2rem;
 }
 
-@media screen and (max-width: 880px) {
+@media screen {
+    /* layout */
+    body {
+        margin: 1rem;
+    }
+
     .worksheet {
         column-count: 1;
     }
 
     dd {
-        width: 64%;
+        width: calc(100% - 6em);
     }
+
+    /* appearance */
+    body {
+        font-size: 16px;
+    }
+
 }
 
-#personal-milestones {
-    column-span: all;
-    margin-top: 1.5rem;
-}
-
-
-@media screen and (max-width: 1000px) {
+@media screen and (min-width: 28rem) {
     .worksheet {
         column-count: 2;
-        /* height: 150em; */
     }
 
-    dd {
-        width: calc(100% - 7rem);
-    }
+    /* dd {
+        width: calc(100% - 9rem);
+    } */
 }
 
-@media screen and (min-width: 1001px) {
+@media screen and (min-width: 60rem) {
     .worksheet {
         column-count: 3;
-        /* height: 100em; */
     }
-    dd {
-        width: calc(100% - 7rem);
-    }
+    /* dd {
+        width: calc(100% - 9rem);
+    } */
 }
 
 @media print {
     /* us letter in points: 612 × 792 */
     body {
-        /* margin: 1cm; */
         font-size: 12pt;
     }
     .about-link {
@@ -100,9 +111,9 @@ p.description {
         font-size: 12pt;
     }
 
-    dd {
+    /* dd {
         width: calc(100% - 7rem);
-    }
+    } */
 
     #title,
     p.description,
@@ -157,10 +168,6 @@ p.description {
     width: calc(90% - 5rem);
 }
 
-.preference {
-    /* border: 1px solid grey; */
-}
-
 .pref-select label {
     margin-right: .25rem;
 }
@@ -190,6 +197,19 @@ i.fa-circle-xmark {
     color: rgb(240, 125, 10);
 }
 
+input.custom-description {
+    border: none;
+    width: 100%;
+}
+
+#about {
+    margin: 2rem;
+    font-size: 90%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 200;
+    font-style: italic;
+    color: #888;
+}
 .key {
     margin: 1rem;
     font-size: 90%;
