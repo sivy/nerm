@@ -40,6 +40,7 @@ dd.description {
 
 p.description {
     font-family: 'Merriweather', Georgia, serif;
+    font-size: 90%;
     font-weight: 300;
     margin: 1rem 1rem 2rem;
 }
@@ -203,12 +204,9 @@ input.custom-description {
 }
 
 #about {
-    margin: 2rem;
-    font-size: 90%;
+    margin: 1rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-weight: 200;
-    font-style: italic;
-    color: #888;
 }
 .key {
     margin: 1rem;

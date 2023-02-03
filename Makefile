@@ -5,9 +5,9 @@ requirements.txt:
 	python3 -m venv .venv
 	pip install -r requirements.txt
 
-install_requirements: .venv requirements.txt
+install_requirements: | .venv requirements.txt
 	pip install -r requirements.txt
 
-index.html: .venv
-	source .venv/bin/activate
-	python main.py nerm.yaml index.html
+index.html: nerm.yaml
+	. .venv/bin/activate
+	python main.py nerm.yaml .
