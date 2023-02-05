@@ -7,6 +7,12 @@
 
     {% set ns = namespace(tab_index=4) %}
     <form id="nerm">
+        <div class="section" id="user-info">
+            <h3>About Me</h3>
+            <label>Name:</label>
+            <input type="text" id="name" placeholder="">
+            <p>(for printing purposes)</p>
+        </div>
         <div class="worksheet">
             {% for section_title, pref_options in preferences.items() %}
             <div class="section" id="{{section_title | kebab }}">
@@ -34,7 +40,7 @@
                             id="custom-{{ option_n }}-description"
                             name="custom-{{ option_n }}-description"
                             class="custom-description"
-                            placeholder="Click to add your own preference..."/></dd>
+                            placeholder="Click to add your own..."/></dd>
                     </div>
                     {% endfor %}
                 </dl>

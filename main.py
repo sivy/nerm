@@ -24,7 +24,7 @@ def cli(filepath, output_dir):
     with open(filepath, "r") as nermfile:
         nerm = yaml.load(nermfile, Loader=yaml.SafeLoader)
 
-    t = env.get_template("menu.html")
+    t = env.get_template("nerm.html")
     out = t.render(choice_label_classes={
         "must": "fa-heart",
         "like": "fa-circle-check",
